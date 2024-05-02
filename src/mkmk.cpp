@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     }
 
     file << "-Wall -Wextra -pedantic -ggdb -o" << std::endl
-	 << "OBJECT = " << name << std::endl
+	 << "OBJECT = " << "bin/" << name << std::endl
 	 << "SRC = ";
 
     if (type == "simple") {
@@ -45,11 +45,12 @@ int main(int argc, char** argv) {
 	file << "$(shell find src/ -type f -name *." << compiler << ')' << std::endl;
     }
 
-    file << "INSTALLATION_TARGET = /usr/bin/" << name << std::endl;
+    file << "INSTALLATION_TARGET = /usr/bin/" << std::endl;
 
     file << std::endl
 	 << "default: $(SRC)"
 	 << std::endl
+	 << "\t@mkdir -p bin" << std::endl
 	 << "\t@" << (compiler == "c" ? "$(CC) $(CFLAGS)" : "$(CXX) $(CXXFLAGS)") << " $(OBJECT) $(SRC)" << std::endl;
 
     file << std::endl

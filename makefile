@@ -1,10 +1,11 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -pedantic -ggdb -o
-OBJECT = mkmk
+OBJECT = bin/mkmk
 SRC = $(wildcard src/*.cpp)
-INSTALLATION_TARGET = /usr/bin/mkmk
+INSTALLATION_TARGET = /usr/bin/
 
 default: $(SRC)
+	@mkdir -p bin
 	@$(CXX) $(CXXFLAGS) $(OBJECT) $(SRC)
 
 clean: $(OBJECT)
