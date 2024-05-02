@@ -1,5 +1,5 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -pedantic -ggdb -o
+CXXFLAGS = -Wall -Wextra -pedantic -std=c++17 -ggdb -o
 OBJECT = bin/mkmk
 SRC = $(wildcard src/*.cpp)
 INSTALLATION_TARGET = /usr/bin/
